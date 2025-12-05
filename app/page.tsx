@@ -30,18 +30,18 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-black relative overflow-hidden">
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
                   Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-500">Federico Bustos</span>
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground">
+                <p className="text-lg md:text-xl text-gray-300 dark:text-gray-400">
                   Systems Engineer with a strong cybersecurity foundation
                 </p>
-                <p className="max-w-[600px] text-muted-foreground md:text-base">
+                <p className="max-w-[600px] text-gray-300 dark:text-gray-400 md:text-base">
                   SOC Analyst | Cybersecurity & Threat Monitoring. Bringing hands-on experience in event monitoring, incident response, and vulnerability management. Fortinet Tools Expert building resilient digital ecosystems. Based in Melbourne, VIC.
                 </p>
               </div>
@@ -87,9 +87,8 @@ export default async function Home() {
           </div>
         </div>
         {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent"></div>
+        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-5"></div>
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-900 to-transparent"></div>
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
       </section>
 
@@ -359,7 +358,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -367,7 +366,7 @@ export default async function Home() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
                 Stay Updated on Cybersecurity Trends
               </h2>
-              <p className="max-w-[600px] text-gray-400 md:text-xl/relaxed">
+              <p className="max-w-[600px] text-gray-300 dark:text-gray-400 md:text-xl/relaxed">
                 Subscribe to our newsletter for the latest cybersecurity news, tips, and insights.
               </p>
             </div>
@@ -377,8 +376,7 @@ export default async function Home() {
           </div>
         </div>
         {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-5"></div>
       </section>
 
       {/* Recent Blog Posts */}
