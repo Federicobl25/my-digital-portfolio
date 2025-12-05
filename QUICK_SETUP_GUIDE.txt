@@ -1,0 +1,238 @@
+════════════════════════════════════════════════════════════════════════════════
+     GUÍA RÁPIDA: SETUP EN NUEVO COMPUTADOR (Git + VS Code Insider)
+════════════════════════════════════════════════════════════════════════════════
+
+TIEMPO ESTIMADO: 10-15 minutos (Ya tienes Git y VS Code)
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 1: INSTALAR NODE.JS Y PNPM (5 min)
+════════════════════════════════════════════════════════════════════════════════
+
+1.1) Descarga Node.js
+   ─────────────────────────────────────────────────────────────────────────
+   Ve a: https://nodejs.org/ 
+   Descarga: LTS version (v20 o superior)
+   Instala con opciones por defecto
+
+1.2) Verifica instalación
+   ─────────────────────────────────────────────────────────────────────────
+   Abre PowerShell y escribe:
+   
+   $ node --version
+   $ npm --version
+   
+   Debe mostrar versiones (ej: v20.10.0, 10.5.0)
+
+1.3) Instala pnpm (si no está incluido)
+   ─────────────────────────────────────────────────────────────────────────
+   $ npm install -g pnpm
+   
+   Verifica:
+   $ pnpm --version
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 2: CLONAR PROYECTO EN VS CODE (2 min)
+════════════════════════════════════════════════════════════════════════════════
+
+2.1) Abre VS Code Insider
+
+2.2) Presiona: Ctrl + Shift + P (Command Palette)
+
+2.3) Escribe: "Git: Clone"
+   Selecciona: "Git: Clone"
+
+2.4) Pega URL del repositorio:
+   https://github.com/Federicobl25/my-digital-portfolio.git
+
+2.5) Selecciona carpeta donde guardar (Ej: C:\Users\TuUsuario\Projects\)
+
+2.6) VS Code abrirá el proyecto automáticamente
+   (Si no, click "Open" cuando pregunte)
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 3: INSTALAR DEPENDENCIAS EN TERMINAL INTEGRADO (10 min)
+════════════════════════════════════════════════════════════════════════════════
+
+3.1) Abre terminal en VS Code
+   ─────────────────────────────────────────────────────────────────────────
+   Presiona: Ctrl + ` (backtick)
+   O: View → Terminal
+
+3.2) Instala dependencias
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm install
+   
+   Espera a que diga: "Done in Xs"
+   (Primera vez tarda 5-10 minutos)
+
+3.3) Verifica versiones correctas
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm list next react
+   
+   Debe mostrar:
+   next@16.0.7
+   react@19.1.0
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 4: CONFIGURAR VARIABLES DE ENTORNO (3 min)
+════════════════════════════════════════════════════════════════════════════════
+
+4.1) En VS Code, crea archivo .env.local
+   ─────────────────────────────────────────────────────────────────────────
+   Click derecho en raíz del proyecto → New File
+   Nombre: .env.local
+
+4.2) Copia este contenido en .env.local
+   ─────────────────────────────────────────────────────────────────────────
+   DATABASE_URL=postgresql://user:password@localhost:5432/portfolio_db
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxx
+   CLERK_SECRET_KEY=sk_test_xxxxx
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+   SENDGRID_API_KEY=SG.xxxxx
+   SENDGRID_FROM_EMAIL=noreply@yourdomain.com
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+4.3) Reemplaza los valores XXX con tus credenciales reales
+   ─────────────────────────────────────────────────────────────────────────
+   Obtén de:
+   • DATABASE_URL: Neon Console → Connection String
+   • CLERK Keys: Clerk Dashboard → API Keys
+   • SENDGRID_API_KEY: SendGrid → Settings → API Keys
+
+4.4) Guarda el archivo: Ctrl + S
+   ─────────────────────────────────────────────────────────────────────────
+   ✓ .env.local está en .gitignore (no se commitea)
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 5: PRUEBA QUE TODO FUNCIONA (2 min)
+════════════════════════════════════════════════════════════════════════════════
+
+5.1) En terminal, ejecuta:
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm dev
+
+5.2) Deberías ver:
+   ─────────────────────────────────────────────────────────────────────────
+   ▲ Next.js 16.0.7
+   - Local: http://localhost:3000
+
+5.3) Abre navegador y ve a: http://localhost:3000
+   ─────────────────────────────────────────────────────────────────────────
+   ¡Deberías ver tu portafolio cargando!
+
+5.4) Para detener servidor: Ctrl + C en terminal
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 6: CONFIGURAR GIT EN VS CODE (Opcional pero recomendado)
+════════════════════════════════════════════════════════════════════════════════
+
+6.1) Configura usuario de Git (primera vez)
+   ─────────────────────────────────────────────────────────────────────────
+   En terminal VS Code:
+   
+   $ git config --global user.name "Tu Nombre"
+   $ git config --global user.email "tu@email.com"
+
+6.2) Verifica que funcionó
+   ─────────────────────────────────────────────────────────────────────────
+   $ git config --global user.name
+   (debe mostrar tu nombre)
+
+
+════════════════════════════════════════════════════════════════════════════════
+LISTO PARA TRABAJAR - PRÓXIMOS PASOS
+════════════════════════════════════════════════════════════════════════════════
+
+Ahora puedes:
+
+1️⃣  DESARROLLAR LOCALMENTE
+   $ pnpm dev
+   Abre: http://localhost:3000
+   Haz cambios y verás en tiempo real
+
+2️⃣  HACER CAMBIOS Y COMMIT
+   En VS Code:
+   - Click en Source Control (Ctrl + Shift + G)
+   - Escribe mensaje de commit
+   - Click en check mark para commitear
+   - O en terminal:
+     $ git add .
+     $ git commit -m "Descripción del cambio"
+     $ git push
+
+3️⃣  VER CAMBIOS EN PRODUCCIÓN
+   Los cambios en GitHub se deployarán automáticamente a Vercel
+   (espera 2-5 minutos)
+
+4️⃣  EDITAR ARTÍCULOS DE BLOG
+   Están en base de datos, no en código
+   Panel de admin: http://localhost:3000/admin
+
+
+════════════════════════════════════════════════════════════════════════════════
+COMANDOS RÁPIDOS PARA TERMINAL VS CODE
+════════════════════════════════════════════════════════════════════════════════
+
+# Desarrollo
+$ pnpm dev                  ← Inicia servidor local
+$ pnpm build                ← Construir para producción
+$ pnpm lint                 ← Verificar código
+
+# Git
+$ git status                ← Ver cambios
+$ git add .                 ← Preparar cambios
+$ git commit -m "msg"       ← Commitear
+$ git push                  ← Subir a GitHub
+$ git pull                  ← Descargar cambios
+
+# Base de datos
+$ pnpm db:push              ← Sincronizar BD (si usas Drizzle)
+
+
+════════════════════════════════════════════════════════════════════════════════
+EXTENSIONES RECOMENDADAS PARA VS CODE INSIDER
+════════════════════════════════════════════════════════════════════════════════
+
+Click en Extensions (Ctrl + Shift + X) e instala:
+
+✓ ES7+ React/Redux/React-Native snippets
+✓ Tailwind CSS IntelliSense
+✓ Prettier - Code formatter
+✓ GitLens
+✓ Thunder Client o REST Client
+
+
+════════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING RÁPIDO
+════════════════════════════════════════════════════════════════════════════════
+
+❌ "Command 'pnpm' not found"
+   ✅ Reinicia VS Code después de instalar Node.js
+
+❌ "Cannot find module 'next'"
+   ✅ $ pnpm install en terminal
+
+❌ "Port 3000 already in use"
+   ✅ $ pnpm dev -p 3001 (usa otro puerto)
+
+❌ Las variables de entorno no funcionan
+   ✅ Reinicia el servidor: Ctrl+C, luego $ pnpm dev
+
+❌ VS Code no muestra sugerencias
+   ✅ Reload Window: Ctrl+Shift+P → "Developer: Reload Window"
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            ✅ COMPLETADO
+════════════════════════════════════════════════════════════════════════════════
+
+Tu nuevo computador está listo para desarrollar el proyecto.
+Todos los archivos, cambios y configuración están sincronizados desde GitHub.
