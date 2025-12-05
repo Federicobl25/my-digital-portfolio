@@ -30,9 +30,9 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
+      <section className="w-full py-12 md:py-20 lg:py-28 xl:py-40 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div className="grid gap-4 lg:grid-cols-[1fr_400px] lg:gap-6 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
@@ -93,9 +93,9 @@ export default async function Home() {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section id="about" className="w-full py-8 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
               Comprehensive overview of my professional background and expertise
@@ -114,7 +114,7 @@ export default async function Home() {
             </Card>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
+            <div className="grid grid-cols-3 gap-4 mt-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">5+</div>
                 <p className="text-sm text-muted-foreground mt-1">Years Professional Experience</p>
@@ -133,15 +133,15 @@ export default async function Home() {
       </section>
 
       {/* Professional Experience Section */}
-      <section id="experience" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+      <section id="experience" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Professional Experience</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
               My career journey in cybersecurity and systems engineering
             </p>
           </div>
-          <div className="mx-auto max-w-4xl space-y-6">
+          <div className="mx-auto max-w-4xl space-y-4">
             <Card className="bg-background border-primary/20">
               <CardHeader>
                 <div className="flex items-start justify-between">
@@ -215,15 +215,15 @@ export default async function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section id="skills" className="w-full py-8 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Skills & Expertise</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
               Technical tools and security competencies I've developed
             </p>
           </div>
-          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-6">
+          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-4">
             <Card className="bg-background border-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -267,15 +267,15 @@ export default async function Home() {
       </section>
 
       {/* Education & Certifications Section */}
-      <section id="education" className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+      <section id="education" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Education & Certifications</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
               Academic background and professional certifications
             </p>
           </div>
-          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-6">
+          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-4">
             <Card className="bg-background border-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -317,16 +317,16 @@ export default async function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section id="contact" className="w-full py-8 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get In Touch</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
               Interested in working together? Feel free to reach out through any of these channels
             </p>
           </div>
           <div className="mx-auto max-w-2xl">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4">
               <Card className="bg-background border-primary/20">
                 <CardContent className="pt-6 flex flex-col items-center text-center">
                   <Mail className="h-8 w-8 text-primary mb-3" />
@@ -358,7 +358,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
+      <section className="w-full py-8 md:py-16 lg:py-20 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -380,7 +380,7 @@ export default async function Home() {
       </section>
 
       {/* Recent Blog Posts */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="w-full py-8 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -397,7 +397,7 @@ export default async function Home() {
               <p className="text-muted-foreground">Unable to load blog posts at this time. Please try again later.</p>
             </div>
           ) : (
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-8 lg:grid-cols-3 lg:gap-8">
               {latestPosts.map((post) => (
                 <Link key={post.id} href={`/blog/${post.slug}`} className="group">
                   <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-200 group-hover:border-primary/50 group-hover:shadow-md">
