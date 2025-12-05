@@ -1,0 +1,7 @@
+{
+  "extends": "default",
+  "audit-level": "high",
+  "production-branch": "main",
+  "enable-notification": true,
+  "ignore": []
+}
