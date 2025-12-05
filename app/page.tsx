@@ -93,8 +93,9 @@ export default async function Home() {
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="w-full py-8 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
+      <section id="about" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/about-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-background/80"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -133,8 +134,9 @@ export default async function Home() {
       </section>
 
       {/* Professional Experience Section */}
-      <section id="experience" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40">
-        <div className="container px-4 md:px-6">
+      <section id="experience" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40 relative overflow-hidden" style={{backgroundImage: 'url(/experience-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-muted/60"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Professional Experience</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -215,8 +217,9 @@ export default async function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="w-full py-8 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
+      <section id="skills" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/skills-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-background/80"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Skills & Expertise</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -267,8 +270,9 @@ export default async function Home() {
       </section>
 
       {/* Education & Certifications Section */}
-      <section id="education" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40">
-        <div className="container px-4 md:px-6">
+      <section id="education" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40 relative overflow-hidden" style={{backgroundImage: 'url(/education-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-muted/70"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Education & Certifications</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -317,8 +321,9 @@ export default async function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-8 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
+      <section id="contact" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/contact-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-background/80"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get In Touch</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
@@ -380,8 +385,9 @@ export default async function Home() {
       </section>
 
       {/* Recent Blog Posts */}
-      <section className="w-full py-8 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
+      <section className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/hero-bg.svg)', backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-background/85"></div>
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Blog</div>
