@@ -1,0 +1,155 @@
+═══════════════════════════════════════════════════════════════════════════════
+                   CHECKLIST DE ACCIONES DE SEGURIDAD
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ VERIFICACIÓN COMPLETADA: No hay secretos comprometidos en GitHub
+
+═══════════════════════════════════════════════════════════════════════════════
+                         ACCIONES INMEDIATAS (HOY)
+═══════════════════════════════════════════════════════════════════════════════
+
+📋 PASO 1: Configurar Variables en Vercel
+─────────────────────────────────────────────────────────────────────────────
+1. Abre https://vercel.com → Tu proyecto
+2. Settings → Environment Variables
+3. Agrega estas variables (obten los valores de tus servicios):
+
+   DATABASE_URL
+   ├─ Obtén de: Neon Console → Connection String
+   └─ Valor: postgresql://user:password@host:port/db_name
+
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   ├─ Obtén de: Clerk Dashboard → API Keys
+   └─ Valor: pk_test_xxxxx
+
+   CLERK_SECRET_KEY
+   ├─ Obtén de: Clerk Dashboard → API Keys (tab Secret Keys)
+   └─ Valor: sk_test_xxxxx
+
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL = /sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL = /sign-up
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL = /
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL = /
+
+   SENDGRID_API_KEY
+   ├─ Obtén de: SendGrid → Settings → API Keys
+   └─ Valor: SG.xxxxx
+
+   SENDGRID_FROM_EMAIL = noreply@tudominio.com (o tu email)
+
+   NEXT_PUBLIC_APP_URL = https://tudominio.vercel.app (o tu dominio)
+
+4. Click en "Save" para cada variable
+5. Verifica que diga "Encrypted ✓" después de guardar
+
+Tiempo estimado: 10-15 minutos
+
+
+📋 PASO 2: Redeploy en Vercel
+─────────────────────────────────────────────────────────────────────────────
+1. En Vercel → Deployments
+2. Busca el último deploy de main branch
+3. Click en "..." (tres puntos) → "Redeploy"
+4. Espera a que diga "Ready" (2-5 minutos)
+
+Tiempo estimado: 5 minutos
+
+
+📋 PASO 3: Proteger Rama Main en GitHub
+─────────────────────────────────────────────────────────────────────────────
+1. Abre https://github.com/tuusuario/my-digital-portfolio
+2. Settings → Branches
+3. Click "Add rule"
+4. Branch name pattern: main
+5. Marca estas opciones:
+   ✓ Require a pull request before merging
+   ✓ Require status checks to pass before merging
+   ✓ Require branches to be up to date before merging
+6. Click "Create"
+
+Tiempo estimado: 5 minutos
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                        VERIFICACIONES (OPCIONAL)
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Test de Seguridad (después de redeploy):
+  1. Abre tu sitio en Vercel
+  2. Abre DevTools (F12) → Network
+  3. Recarga la página
+  4. Busca "Response Headers" en cualquier request
+  5. Verifica que veas:
+     - Content-Security-Policy ✓
+     - X-Frame-Options: SAMEORIGIN ✓
+     - Strict-Transport-Security ✓
+
+✓ Verificar Newsletter:
+  1. Intenta suscribirte con un email
+  2. Debe funcionar sin errores
+  3. Si falla, revisa que DATABASE_URL esté correcto
+
+✓ Verificar Clerk Auth:
+  1. Click en botón Sign In/Sign Up
+  2. Debe redirigir a Clerk sin errores
+  3. Si falla, revisa que CLERK_SECRET_KEY esté correcto
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          ACCIONES FUTURAS (OPCIONAL)
+═══════════════════════════════════════════════════════════════════════════════
+
+🔮 Próxima Semana (Mejoras Opcionales):
+   □ Integrar Sentry para logging de errores
+   □ Agregar uptime monitoring (StatusPage.io)
+   □ Configurar backups automáticos de base de datos
+   □ Análisis de seguridad con npm audit en CI/CD
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         TROUBLESHOOTING RÁPIDO
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ Error: "Vercel says 'Please check that you are using the latest version'"
+   → Redeploy desde Vercel (click en "..." → Redeploy)
+
+❌ Newsletter no funciona:
+   → Verifica DATABASE_URL en Vercel
+   → Ejecuta npm run build localmente para detectar errores
+
+❌ Clerk no funciona:
+   → Verifica CLERK_SECRET_KEY y NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   → Deben coincidir exactamente con los de Clerk Dashboard
+
+❌ "404 Not Found" en rutas:
+   → Verifica que todas las variables NEXT_PUBLIC_CLERK_* estén configuradas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                       CUÁNDO HAYAS TERMINADO...
+═══════════════════════════════════════════════════════════════════════════════
+
+Tu portafolio estará:
+✅ Seguro contra XSS, SQL injection, clickjacking
+✅ Protegido contra ataques de fuerza bruta (rate limiting)
+✅ Con HTTPS forzado (HSTS)
+✅ Con headers de seguridad HTTP completos
+✅ Validación de entrada en todos los formularios
+✅ Logging de eventos de seguridad
+✅ Secretos protegidos en Vercel (nunca en código)
+✅ GitHub protegido contra cambios no autorizados
+✅ Listo para producción
+
+═══════════════════════════════════════════════════════════════════════════════
+                              RESUMEN RÁPIDO
+═══════════════════════════════════════════════════════════════════════════════
+
+ORDEN DE EJECUCIÓN:
+1️⃣  Configurar 8 variables en Vercel (10 min)
+2️⃣  Redeploy en Vercel (5 min)
+3️⃣  Proteger rama main en GitHub (5 min)
+4️⃣  Verificar que todo funciona (10 min)
+
+TIEMPO TOTAL: 30-40 minutos
+
+═══════════════════════════════════════════════════════════════════════════════
