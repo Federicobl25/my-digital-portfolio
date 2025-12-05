@@ -1,0 +1,315 @@
+════════════════════════════════════════════════════════════════════════════════
+          GUÍA: TRANSFERIR PROYECTO A OTRO COMPUTADOR COMPLETAMENTE
+════════════════════════════════════════════════════════════════════════════════
+
+TIEMPO ESTIMADO: 30-45 minutos
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 1: INSTALAR DEPENDENCIAS EN NUEVO COMPUTADOR (15 min)
+════════════════════════════════════════════════════════════════════════════════
+
+1.1) Instalar Node.js & pnpm
+   ─────────────────────────────────────────────────────────────────────────
+   Windows:
+   - Descarga: https://nodejs.org/ (versión LTS)
+   - Instala Node.js (pnpm viene incluido desde Node 16+)
+   
+   macOS:
+   $ brew install node
+   
+   Linux:
+   $ sudo apt update && sudo apt install nodejs npm
+
+1.2) Verificar instalaciones
+   ─────────────────────────────────────────────────────────────────────────
+   $ node --version        (debe ser v20+ )
+   $ npm --version         (debe ser v10+)
+   $ pnpm --version        (debe estar disponible)
+
+1.3) Instalar Git (si no está instalado)
+   ─────────────────────────────────────────────────────────────────────────
+   Windows: https://git-scm.com/download/win
+   macOS:   $ brew install git
+   Linux:   $ sudo apt install git
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 2: CLONAR REPOSITORIO EN NUEVO COMPUTADOR (5 min)
+════════════════════════════════════════════════════════════════════════════════
+
+2.1) Abre terminal/PowerShell en directorio donde quieres el proyecto
+   ─────────────────────────────────────────────────────────────────────────
+   Windows: PowerShell o CMD
+   macOS/Linux: Terminal
+
+2.2) Clona el repositorio
+   ─────────────────────────────────────────────────────────────────────────
+   $ git clone https://github.com/Federicobl25/my-digital-portfolio.git
+   $ cd my-digital-portfolio
+
+2.3) Verifica que hayas clonado bien
+   ─────────────────────────────────────────────────────────────────────────
+   $ git remote -v
+   (debe mostrar origin apuntando a tu repo)
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 3: INSTALAR DEPENDENCIAS DEL PROYECTO (15 min)
+════════════════════════════════════════════════════════════════════════════════
+
+3.1) Instala todas las dependencias con pnpm
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm install
+   
+   (Verás: "Done in Xs using pnpm vX.X.X")
+
+3.2) Verifica que todo se instaló correctamente
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm list next react
+   (debe mostrar Next.js 16.0.7 y React 19.1.0)
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 4: CONFIGURAR VARIABLES DE ENTORNO LOCALES (10 min)
+════════════════════════════════════════════════════════════════════════════════
+
+4.1) Copia el archivo template
+   ─────────────────────────────────────────────────────────────────────────
+   $ cp .env.example .env.local
+   
+   (En Windows PowerShell: copy .env.example .env.local)
+
+4.2) Edita .env.local con tu editor favorito
+   ─────────────────────────────────────────────────────────────────────────
+   Abre: .env.local
+   
+   Cambia estos valores (reemplaza XXX):
+   
+   DATABASE_URL=postgresql://user:password@localhost:5432/portfolio_db
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_XXX
+   CLERK_SECRET_KEY=sk_test_XXX
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+   SENDGRID_API_KEY=SG.XXX
+   SENDGRID_FROM_EMAIL=noreply@yourdomain.com
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+4.3) IMPORTANTE: Nunca commitees .env.local
+   ─────────────────────────────────────────────────────────────────────────
+   ✓ Ya está en .gitignore (verificado)
+   ✓ Si accidentalmente lo añades, git lo ignorará
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 5: OBTENER VALORES DE CONFIGURACIÓN (10 min)
+════════════════════════════════════════════════════════════════════════════════
+
+Necesitas obtener estos valores de tus servicios:
+
+5.1) DATABASE_URL - De Neon PostgreSQL
+   ─────────────────────────────────────────────────────────────────────────
+   1. Ve a: https://console.neon.tech
+   2. Login con tu cuenta
+   3. Selecciona tu proyecto
+   4. Click "Connection String"
+   5. Copia la URL completa tipo: postgresql://user:pass@host:port/db
+   6. Pega en .env.local
+
+5.2) CLERK Keys - De Clerk Dashboard
+   ─────────────────────────────────────────────────────────────────────────
+   1. Ve a: https://dashboard.clerk.com
+   2. Login con tu cuenta
+   3. Selecciona tu app
+   4. Ve a: API Keys
+   5. Copia: Publishable Key (comienza con pk_test_)
+   6. Copia: Secret Key (comienza con sk_test_)
+   7. Pega en .env.local
+
+5.3) SENDGRID_API_KEY - De SendGrid
+   ─────────────────────────────────────────────────────────────────────────
+   1. Ve a: https://app.sendgrid.com
+   2. Login con tu cuenta
+   3. Ve a: Settings → API Keys
+   4. Copia una API Key existente o crea una nueva
+   5. Pega en .env.local
+
+5.4) NEXT_PUBLIC_APP_URL
+   ─────────────────────────────────────────────────────────────────────────
+   Desarrollo: http://localhost:3000
+   Producción: https://tu-dominio.com
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 6: VERIFICAR QUE TODO FUNCIONA (5 min)
+════════════════════════════════════════════════════════════════════════════════
+
+6.1) Test de build
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm build
+   
+   Si ves: "✓ Finalizing page optimization"
+   → ¡ÉXITO! El build funciona
+
+6.2) Test de desarrollo
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm dev
+   
+   Deberías ver:
+   "▲ Next.js 16.0.7"
+   "- Local:        http://localhost:3000"
+   
+   Abre en navegador: http://localhost:3000
+   → ¡ÉXITO! El sitio funciona localmente
+
+6.3) Detener servidor de desarrollo
+   ─────────────────────────────────────────────────────────────────────────
+   Ctrl + C en la terminal
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 7: CONFIGURAR GIT PARA COMMITS (5 min)
+════════════════════════════════════════════════════════════════════════════════
+
+7.1) Configura tu nombre y email en Git (primera vez)
+   ─────────────────────────────────────────────────────────────────────────
+   $ git config --global user.name "Tu Nombre"
+   $ git config --global user.email "tu.email@example.com"
+
+7.2) Verifica configuración
+   ─────────────────────────────────────────────────────────────────────────
+   $ git config --global user.name
+   $ git config --global user.email
+
+7.3) (OPCIONAL) Configura SSH para no pedir contraseña
+   ─────────────────────────────────────────────────────────────────────────
+   Busca en GitHub: "Settings → SSH and GPG keys"
+   Sigue la guía de GitHub para agregar tu SSH key
+   (Así no necesitarás ingresar contraseña en cada push)
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 8: EMPEZAR A DESARROLLAR (Ya está listo!)
+════════════════════════════════════════════════════════════════════════════════
+
+8.1) Estructura del proyecto
+   ─────────────────────────────────────────────────────────────────────────
+   app/
+   ├── page.tsx              ← Página de inicio
+   ├── actions/              ← Server actions (newsletter, auth, etc)
+   ├── blog/
+   │   └── [slug]/page.tsx   ← Posts individuales
+   └── admin/                ← Panel de administrador
+   
+   components/
+   ├── ui/                   ← Componentes Radix UI
+   └── *.tsx                 ← Componentes custom
+   
+   lib/
+   ├── security.ts           ← Funciones de seguridad
+   ├── db.ts                 ← Conexión a base de datos
+   └── auth.ts               ← Autenticación
+   
+   public/                   ← Imágenes, SVGs, assets estáticos
+
+8.2) Comandos útiles
+   ─────────────────────────────────────────────────────────────────────────
+   $ pnpm dev              ← Iniciar servidor de desarrollo
+   $ pnpm build            ← Hacer build para producción
+   $ pnpm start            ← Iniciar servidor en producción
+   $ pnpm lint             ← Verificar código
+   $ git status            ← Ver cambios no committeados
+   $ git add .             ← Preparar todos los cambios
+   $ git commit -m "msg"   ← Hacer commit
+   $ git push              ← Subir cambios a GitHub
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 9: WORKFLOW DE DESARROLLO RECOMENDADO
+════════════════════════════════════════════════════════════════════════════════
+
+Cada vez que trabajas:
+
+1. Actualiza cambios del repositorio remoto
+   $ git pull origin main
+
+2. Crea rama para tu feature (opcional pero recomendado)
+   $ git checkout -b feature/nombre-feature
+
+3. Haz cambios en los archivos
+
+4. Verifica que funciona
+   $ pnpm dev
+   (abre http://localhost:3000 en navegador)
+
+5. Commit tus cambios
+   $ git add .
+   $ git commit -m "Descripción clara del cambio"
+
+6. Push a GitHub
+   $ git push origin main (o tu rama)
+
+7. Verifica en Vercel que el deploy fue exitoso
+   https://vercel.com → tu proyecto
+
+
+════════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+════════════════════════════════════════════════════════════════════════════════
+
+❌ Error: "Cannot find module 'next'"
+   ✅ Solución: $ pnpm install
+
+❌ Error: "ERR_PNPM_OUTDATED_LOCKFILE"
+   ✅ Solución: $ pnpm install
+
+❌ Error: "Port 3000 already in use"
+   ✅ Solución: $ pnpm dev -p 3001 (usa otro puerto)
+
+❌ Error: "DATABASE_URL is not defined"
+   ✅ Solución: Verifica que .env.local existe y tiene DATABASE_URL
+
+❌ Error: "Cannot GET /"
+   ✅ Solución: Aguarda a que termine de compilar (2-5 min la primera vez)
+
+❌ Clerk authentication no funciona
+   ✅ Solución: Verifica CLERK_SECRET_KEY y NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+
+════════════════════════════════════════════════════════════════════════════════
+DOCUMENTACIÓN IMPORTANTE
+════════════════════════════════════════════════════════════════════════════════
+
+Lee estos archivos en el proyecto:
+- SECURITY.md           ← Política de seguridad
+- .env.example          ← Variables necesarias
+- README.md             ← Información del proyecto
+- SECURITY_ACTIONS.txt  ← Pasos para Vercel
+
+
+════════════════════════════════════════════════════════════════════════════════
+RESUMEN DE COMANDOS (COPIA Y PEGA)
+════════════════════════════════════════════════════════════════════════════════
+
+# Clonar y configurar
+git clone https://github.com/Federicobl25/my-digital-portfolio.git
+cd my-digital-portfolio
+pnpm install
+cp .env.example .env.local
+
+# Editar .env.local con tus credenciales (usa tu editor favorito)
+# Luego:
+
+# Verificar que funciona
+pnpm build
+pnpm dev
+
+# Hacer cambios y commit
+git add .
+git commit -m "Descripción del cambio"
+git push origin main
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            ¡LISTO PARA TRABAJAR!
+════════════════════════════════════════════════════════════════════════════════
