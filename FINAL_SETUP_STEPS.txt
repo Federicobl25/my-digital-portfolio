@@ -1,0 +1,253 @@
+════════════════════════════════════════════════════════════════════════════════
+              PRÓXIMOS PASOS: CLONAR Y SINCRONIZAR EL PROYECTO
+════════════════════════════════════════════════════════════════════════════════
+
+✅ YA TIENES:
+   • Node.js 24.11.1 instalado
+   • pnpm instalado
+   • VS Code Insider con sincronización activada
+   • Git instalado
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 1: CLONAR EL REPOSITORIO (2 min)
+════════════════════════════════════════════════════════════════════════════════
+
+Opción A - Desde VS Code (Más fácil):
+──────────────────────────────────────
+1. En VS Code Insider: Ctrl + Shift + P
+2. Escribe: "Git: Clone"
+3. Pega esta URL:
+   https://github.com/Federicobl25/my-digital-portfolio.git
+4. Elige carpeta donde guardarlo (Ej: C:\Users\TuUsuario\Projects\)
+5. Click "Open" cuando pregunte
+
+Opción B - Desde PowerShell (Si prefieres terminal):
+──────────────────────────────────────────────────────
+1. Abre PowerShell
+2. Ve a carpeta donde quieres el proyecto:
+   $ cd C:\Users\TuUsuario\Projects\
+3. Clona:
+   $ git clone https://github.com/Federicobl25/my-digital-portfolio.git
+4. Entra a carpeta:
+   $ cd my-digital-portfolio
+5. Abre en VS Code:
+   $ code-insiders .
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 2: INSTALAR DEPENDENCIAS (10 min - primera vez es más lenta)
+════════════════════════════════════════════════════════════════════════════════
+
+1. En VS Code: Abre terminal integrado
+   Ctrl + ` (backtick)
+
+2. Ejecuta:
+   $ pnpm install
+
+3. Espera a que veas: "Done in Xs using pnpm vX.X.X"
+   (Primera vez tarda 5-10 minutos)
+
+4. Verifica versiones:
+   $ pnpm list next react
+   
+   Debe mostrar:
+   next@16.0.7
+   react@19.1.0
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 3: CREAR .env.local CON TUS CREDENCIALES (3 min)
+════════════════════════════════════════════════════════════════════════════════
+
+1. En VS Code, click derecho en raíz del proyecto
+   → New File
+   → Nombre: .env.local
+
+2. Copia EXACTAMENTE este contenido:
+
+   DATABASE_URL=postgresql://user:password@localhost:5432/portfolio_db
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxx
+   CLERK_SECRET_KEY=sk_test_xxxxx
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+   SENDGRID_API_KEY=SG.xxxxx
+   SENDGRID_FROM_EMAIL=noreply@yourdomain.com
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+3. REEMPLAZA estos valores con los REALES:
+   
+   DATABASE_URL=
+   ├─ Obtén de: https://console.neon.tech
+   ├─ Login → Tu proyecto → Connection String
+   └─ Ejemplo: postgresql://user:pass@ep-xxxxx.neon.tech:5432/neondb
+
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY= (comienza con pk_test_)
+   CLERK_SECRET_KEY= (comienza con sk_test_)
+   ├─ Obtén de: https://dashboard.clerk.com
+   ├─ Login → Tu app → API Keys
+   └─ Copia Publishable Key y Secret Key
+
+   SENDGRID_API_KEY= (comienza con SG.)
+   ├─ Obtén de: https://app.sendgrid.com
+   ├─ Settings → API Keys
+   └─ Copia una API Key (o crea una nueva)
+
+   SENDGRID_FROM_EMAIL=
+   └─ Tu email verificado en SendGrid
+
+4. Guarda: Ctrl + S
+
+5. ¡IMPORTANTE! .env.local NUNCA se commitea
+   └─ Ya está en .gitignore ✓
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 4: INICIAR SERVIDOR DE DESARROLLO (2 min)
+════════════════════════════════════════════════════════════════════════════════
+
+En terminal VS Code, ejecuta:
+
+$ pnpm dev
+
+Deberías ver algo como:
+
+   ▲ Next.js 16.0.7
+   - Local: http://localhost:3000
+   - Environments: .env.local
+
+✓ Listo, el servidor está corriendo
+
+
+════════════════════════════════════════════════════════════════════════════════
+PASO 5: VER TU PORTAFOLIO EN EL NAVEGADOR (1 min)
+════════════════════════════════════════════════════════════════════════════════
+
+1. Abre navegador
+2. Ve a: http://localhost:3000
+3. ¡Deberías ver tu portafolio cargando!
+
+Si hay error, revisa:
+├─ ¿Está .env.local creado?
+├─ ¿Las credenciales son correctas?
+├─ ¿El servidor de desarrollo está corriendo? ($ pnpm dev)
+└─ Revisa errores en terminal VS Code
+
+
+════════════════════════════════════════════════════════════════════════════════
+VERIFICACIONES RÁPIDAS
+════════════════════════════════════════════════════════════════════════════════
+
+✓ Todo instalado correctamente:
+  $ node --version    (debe ser v24.11.1)
+  $ pnpm --version    (debe mostrar versión)
+  $ git --version     (debe mostrar versión)
+
+✓ Repositorio clonado:
+  En VS Code deberías ver el logo de Git en Source Control
+  Y el nombre de la carpeta: "my-digital-portfolio"
+
+✓ Dependencias instaladas:
+  Debe existir carpeta "node_modules" (grande, ~500MB)
+
+✓ Variables de entorno:
+  Debe existir .env.local en raíz del proyecto
+
+
+════════════════════════════════════════════════════════════════════════════════
+COMANDOS ÚTILES PARA TERMINAL VS CODE
+════════════════════════════════════════════════════════════════════════════════
+
+# Para detener servidor de desarrollo
+Ctrl + C (en terminal)
+
+# Para reinicar servidor
+Ctrl + C, luego: $ pnpm dev
+
+# Ver cambios pendientes
+$ git status
+
+# Ver logs del proyecto
+$ git log --oneline -5
+
+# Crear un commit (desde terminal)
+$ git add .
+$ git commit -m "Descripción del cambio"
+$ git push
+
+# O desde VS Code:
+├─ Ctrl + Shift + G (abrir Source Control)
+├─ Escribe mensaje de commit
+└─ Click en checkmark para commitear
+
+
+════════════════════════════════════════════════════════════════════════════════
+PRÓXIMOS PASOS - OPCIONALES
+════════════════════════════════════════════════════════════════════════════════
+
+Una vez que todo funcione:
+
+1️⃣  Explora la estructura del proyecto:
+    app/
+    ├─ page.tsx              ← Página de inicio
+    ├─ blog/                 ← Posts del blog
+    └─ admin/                ← Panel admin
+
+2️⃣  Haz un cambio de prueba:
+    ├─ Edita cualquier archivo
+    └─ Verás el cambio en vivo (hot reload)
+
+3️⃣  Hazlo commit:
+    ├─ $ git add .
+    ├─ $ git commit -m "Test change"
+    └─ $ git push (sube a GitHub)
+
+4️⃣  Verifica en Vercel:
+    └─ https://vercel.com (debe ver el nuevo deploy)
+
+
+════════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING SI ALGO FALLA
+════════════════════════════════════════════════════════════════════════════════
+
+❌ "pnpm: No such file or directory"
+   ✅ Reinicia terminal o VS Code después de instalar pnpm
+
+❌ "Cannot find module 'next'"
+   ✅ $ pnpm install en terminal
+
+❌ "PORT 3000 in use"
+   ✅ Otro programa está usando puerto 3000
+   └─ $ pnpm dev -p 3001 (usa otro puerto)
+
+❌ "ERR_PNPM_OUTDATED_LOCKFILE"
+   ✅ $ pnpm install
+
+❌ Variables de entorno no funcionan
+   ✅ 1. Verifica que .env.local existe
+   ✅ 2. Detén servidor (Ctrl+C)
+   ✅ 3. Reinicia: $ pnpm dev
+
+❌ "Connection refused" al conectar a BD
+   ✅ Verifica DATABASE_URL en .env.local
+   ✅ Verifica que DATABASE_URL es correcta en Neon
+
+❌ Clerk authentication no funciona
+   ✅ Verifica CLERK_SECRET_KEY y NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+   ✅ Deben coincidir exactamente con Clerk Dashboard
+
+
+════════════════════════════════════════════════════════════════════════════════
+ESTÁS LISTO PARA EMPEZAR
+════════════════════════════════════════════════════════════════════════════════
+
+Acabas de completar el setup de tu portafolio en el nuevo computador.
+Ahora puedes:
+
+✅ Desarrollar localmente
+✅ Ver cambios en tiempo real
+✅ Hacer commits a GitHub
+✅ Los cambios se despliegan automáticamente a Vercel
+
+¡A trabajar! 🚀
