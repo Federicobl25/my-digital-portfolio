@@ -28,105 +28,104 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white dark:bg-slate-950">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-20 lg:py-28 xl:py-40 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%)'}}></div>
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.2) 0%, transparent 50%)'}}></div>
+        </div>
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid gap-4 lg:grid-cols-[1fr_400px] lg:gap-6 xl:grid-cols-[1fr_600px]">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
-                  Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-500">Federico Bustos</span>
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            <div className="flex flex-col justify-center space-y-6">
+              <div className="space-y-4">
+                <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg border border-primary/20 w-fit">
+                  <p className="text-sm font-medium text-primary">Welcome to my portfolio</p>
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                  <span className="text-slate-900 dark:text-white">Federico Bustos</span>
+                  <br />
+                  <span className="bg-gradient-to-r from-primary via-blue-500 to-cyan-500 bg-clip-text text-transparent">Cybersecurity Expert</span>
                 </h1>
-                <p className="text-lg md:text-xl text-gray-300 dark:text-gray-400">
-                  Systems Engineer with a strong cybersecurity foundation
-                </p>
-                <p className="max-w-[600px] text-gray-300 dark:text-gray-400 md:text-base">
-                  SOC Analyst | Cybersecurity & Threat Monitoring. Bringing hands-on experience in event monitoring, incident response, and vulnerability management. Fortinet Tools Expert building resilient digital ecosystems. Based in Melbourne, VIC.
+                <p className="text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
+                  SOC Analyst & Systems Engineer specializing in threat monitoring, incident response, and infrastructure security. Based in Melbourne, Australia.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 min-[400px]:flex-row">
+              <div className="flex flex-wrap gap-3">
                 <Link href="#contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    Contact Me
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+                    Get in Touch
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline">
-                  Download CV
-                </Button>
+                <Link href="/blog">
+                  <Button size="lg" variant="outline" className="dark:border-slate-600 dark:text-slate-300">
+                    Read Insights
+                  </Button>
+                </Link>
               </div>
-              <div className="flex gap-4 pt-4">
-                <Link href="https://linkedin.com/in/federico-bustos-systems-engineer" target="_blank">
-                  <Button variant="ghost" size="icon">
+              <div className="flex gap-4 pt-2">
+                <Link href="https://linkedin.com/in/federico-bustos-systems-engineer" target="_blank" title="LinkedIn">
+                  <Button variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary">
                     <Linkedin className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="https://github.com/federicobustos" target="_blank">
-                  <Button variant="ghost" size="icon">
+                <Link href="https://github.com/federicobustos" target="_blank" title="GitHub">
+                  <Button variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary">
                     <Github className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="mailto:federicobl93@gmail.com">
-                  <Button variant="ghost" size="icon">
+                <Link href="mailto:federicobl93@gmail.com" title="Email">
+                  <Button variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary">
                     <Mail className="h-5 w-5" />
                   </Button>
                 </Link>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              <div className="relative w-full max-w-[400px]">
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="relative w-full max-w-[400px] aspect-square">
                 <Image
                   src="/images/foto.png"
                   width={400}
                   height={400}
                   alt="Federico Bustos"
-                  className="rounded-2xl object-cover"
+                  className="rounded-2xl object-cover shadow-2xl"
                 />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/20 to-transparent"></div>
               </div>
             </div>
           </div>
         </div>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-5"></div>
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-slate-900 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
       </section>
 
       {/* About Me Section */}
-      <section id="about" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/about-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-background/75"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">About Me</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Comprehensive overview of my professional background and expertise
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl">
-            <Card className="bg-background border-primary/20">
-              <CardContent className="pt-6">
-                <p className="text-base leading-relaxed mb-4">
-                  As a Systems Engineer with a strong cybersecurity foundation, I bring hands-on experience in event monitoring, incident response, and vulnerability management across diverse infrastructures. During my time at COINSA SAS, I transitioned from Level 1 to Level 2 SOC Analyst, leading initiatives that enhanced threat detection accuracy and incident response times by up to 30%.
-                </p>
-                <p className="text-base leading-relaxed">
-                  I've worked closely with Fortinet technologies—FortiSIEM, FortiAnalyzer, and FortiGate—developing tailored dashboards, automating processes, and ensuring secure environments for clients in highly sensitive sectors. My passion lies in driving security excellence through continuous learning, process optimization, and effective collaboration across multidisciplinary teams. I thrive in dynamic, results-oriented environments, and I'm always looking for new ways to build safer digital ecosystems.
-                </p>
-              </CardContent>
-            </Card>
-
+      <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-white dark:bg-slate-900 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">About Me</h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto"></div>
+            </div>
+            <div className="prose dark:prose-invert prose-lg max-w-none">
+              <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+                As a Systems Engineer with a strong cybersecurity foundation, I bring hands-on experience in event monitoring, incident response, and vulnerability management across diverse infrastructures. During my time at COINSA SAS, I transitioned from Level 1 to Level 2 SOC Analyst, leading initiatives that enhanced threat detection accuracy and incident response times by up to 30%.
+              </p>
+              <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                I've worked closely with Fortinet technologies—FortiSIEM, FortiAnalyzer, and FortiGate—developing tailored dashboards, automating processes, and ensuring secure environments for clients in highly sensitive sectors. My passion lies in driving security excellence through continuous learning, process optimization, and effective collaboration across multidisciplinary teams.
+              </p>
+            </div>
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-12 border-t border-slate-200 dark:border-slate-800">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">5+</div>
-                <p className="text-sm text-muted-foreground mt-1">Years Professional Experience</p>
+                <div className="text-4xl font-bold text-primary mb-2">5+</div>
+                <p className="text-slate-600 dark:text-slate-400">Years Experience</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">7</div>
-                <p className="text-sm text-muted-foreground mt-1">Certifications</p>
+                <div className="text-4xl font-bold text-primary mb-2">7</div>
+                <p className="text-slate-600 dark:text-slate-400">Certifications</p>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">30%</div>
-                <p className="text-sm text-muted-foreground mt-1">Improvement In Response Times</p>
+                <div className="text-4xl font-bold text-primary mb-2">30%</div>
+                <p className="text-slate-600 dark:text-slate-400">Improvement Achieved</p>
               </div>
             </div>
           </div>
@@ -134,305 +133,237 @@ export default async function Home() {
       </section>
 
       {/* Professional Experience Section */}
-      <section id="experience" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40 relative overflow-hidden" style={{backgroundImage: 'url(/experience-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-muted/50"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Professional Experience</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              My career journey in cybersecurity and systems engineering
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl space-y-4">
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
+      <section id="experience" className="w-full py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-950 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Professional Experience</h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto"></div>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <CardTitle>SOC Analyst Level 2</CardTitle>
-                    <CardDescription>COINSA SAS • September 2022 – October 2023 • 1 year 2 months</CardDescription>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">SOC Analyst Level 2</h3>
+                    <p className="text-primary font-medium">COINSA SAS</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">Bogotá, Colombia</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Sep 2022 - Oct 2023</span>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Improved response times by 30% through enhanced incident handling processes</li>
-                    <li>• Managed critical security incidents and oversaw technical reporting across client environments</li>
-                    <li>• Implemented monitoring dashboards that improved detection accuracy and incident response speed by 30%</li>
-                    <li>• Administered Fortinet infrastructure including FortiSIEM, FortiGate, and FortiAnalyzer</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+                <p className="text-slate-700 dark:text-slate-300 mb-3">Bogotá, Colombia</p>
+                <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                  <li>✓ Improved response times by 30% through enhanced incident handling processes</li>
+                  <li>✓ Managed critical security incidents and technical reporting across client environments</li>
+                  <li>✓ Administered Fortinet infrastructure (FortiSIEM, FortiGate, FortiAnalyzer)</li>
+                </ul>
+              </div>
 
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
+              <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <CardTitle>SOC Analyst Level 1</CardTitle>
-                    <CardDescription>COINSA SAS • March 2022 – September 2022 • 7 months</CardDescription>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">SOC Analyst Level 1</h3>
+                    <p className="text-primary font-medium">COINSA SAS</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">Bogotá, Colombia</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Mar 2022 - Sep 2022</span>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Monitored over 20 dashboards for real-time infrastructure supervision</li>
-                    <li>• Developed over 40 use case templates, significantly improving notification speeds and operational efficiency</li>
-                    <li>• Generated compliance reports and handled daily incident documentation</li>
-                    <li>• Improved system performance by optimising hardware configuration and OS performance</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+                <p className="text-slate-700 dark:text-slate-300 mb-3">Bogotá, Colombia</p>
+                <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                  <li>✓ Monitored 20+ dashboards for real-time infrastructure supervision</li>
+                  <li>✓ Developed 40+ use case templates improving notification speeds</li>
+                  <li>✓ Generated compliance reports and handled incident documentation</li>
+                </ul>
+              </div>
 
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <div className="flex items-start justify-between">
+              <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800 hover:shadow-lg transition-shadow">
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <CardTitle>Medical Accounts Analyst</CardTitle>
-                    <CardDescription>La Equidad Seguros OC • February 2020 – March 2022 • 2 years 2 months</CardDescription>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">Medical Accounts Analyst</h3>
+                    <p className="text-primary font-medium">La Equidad Seguros OC</p>
                   </div>
-                  <span className="text-sm text-muted-foreground">Bogotá, Colombia</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Feb 2020 - Mar 2022</span>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Managed provider networks and pricing structures across national healthcare services</li>
-                    <li>• Led data analysis and pricing strategies to optimise service costs and streamline claims processing</li>
-                    <li>• Designed and implemented a nationwide provider network aligned with regulatory requirements</li>
-                    <li>• Contributed to cross-functional coordination between technical, operational, and customer service areas</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+                <p className="text-slate-700 dark:text-slate-300 mb-3">Bogotá, Colombia</p>
+                <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                  <li>✓ Managed provider networks and pricing structures across national healthcare services</li>
+                  <li>✓ Led data analysis and pricing strategies to optimize service costs</li>
+                  <li>✓ Designed nationwide provider network aligned with regulatory requirements</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/skills-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-background/75"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Skills & Expertise</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Technical tools and security competencies I've developed
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-4">
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  Technical Tools
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-2">
-                  {["FortiSIEM", "FortiAnalyzer", "FortiGate", "VMware", "Citrix", "Cisco", "MS Office", "Confluence", "SharePoint", "Excel", "Power BI"].map((tool) => (
-                    <div key={tool} className="text-sm bg-primary/10 rounded px-3 py-2">
+      <section id="skills" className="w-full py-16 md:py-24 lg:py-32 bg-white dark:bg-slate-900 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Technical Skills</h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto"></div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-primary" /> Security Tools
+                </h3>
+                <div className="space-y-2">
+                  {["FortiSIEM", "FortiAnalyzer", "FortiGate", "Cisco", "VMware", "Citrix", "Splunk"].map((tool) => (
+                    <div key={tool} className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mr-2 mb-2 border border-primary/20">
                       {tool}
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Lock className="h-5 w-5 text-primary" />
-                  Security Competencies
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm">
-                  <p>• Security Monitoring & Analysis</p>
-                  <p>• Vulnerability Assessment</p>
-                  <p>• Incident Response & Management</p>
-                  <p>• Security Policy Development</p>
-                  <p>• Threat Detection & Monitoring</p>
-                  <p>• Security Training & Awareness</p>
-                  <p>• Documentation & Reporting</p>
-                  <p>• Compliance & Regulatory Standards</p>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Lock className="h-5 w-5 text-primary" /> Core Competencies
+                </h3>
+                <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                  <li>✓ Security Monitoring & Analysis</li>
+                  <li>✓ Incident Response & Management</li>
+                  <li>✓ Vulnerability Assessment</li>
+                  <li>✓ Threat Detection & Hunting</li>
+                  <li>✓ Security Policy Development</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Education & Certifications Section */}
-      <section id="education" className="w-full py-8 md:py-16 lg:py-20 bg-muted/40 relative overflow-hidden" style={{backgroundImage: 'url(/education-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-muted/60"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Education & Certifications</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Academic background and professional certifications
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-4">
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <FileCode className="h-5 w-5 text-primary" />
-                  Education
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold">Bachelor's Degree in Systems Engineering</h4>
-                  <p className="text-sm text-muted-foreground">Information Technology / Computer Systems Technology</p>
-                  <p className="text-sm text-muted-foreground">Universidad EAN, Colombia</p>
-                  <p className="text-sm text-primary font-medium">2018 - 2023</p>
+      <section id="education" className="w-full py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-950 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Education & Certifications</h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto"></div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <FileCode className="h-5 w-5 text-primary" /> Education
+                </h3>
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800">
+                  <h4 className="font-bold text-slate-900 dark:text-white">Bachelor's in Systems Engineering</h4>
+                  <p className="text-primary text-sm font-medium">Universidad EAN, Colombia</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">2018 - 2023</p>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  Professional Certifications
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm">
-                  <p>• Fortinet NSE 1: Network Security Associate (April 2022)</p>
-                  <p>• Fortinet NSE 2: Network Security Associate (April 2022)</p>
-                  <p>• Fortinet NSE 3: Network Security Associate (July 2022)</p>
-                  <p>• Ethical Hacker Essentials (EHE) - EC-Council (June 2023)</p>
-                  <p>• Cybersecurity for Businesses - EC-Council (June 2023)</p>
-                  <p>• AWS Academy Cloud Foundations (November 2022)</p>
-                  <p>• Seguridad de la Información - MoE (November 2022)</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-primary" /> Certifications
+                </h3>
+                <div className="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
+                  <p>✓ Fortinet NSE 1, 2, 3 - Network Security Associate</p>
+                  <p>✓ Ethical Hacker Essentials (EHE) - EC-Council</p>
+                  <p>✓ Cybersecurity for Businesses - EC-Council</p>
+                  <p>✓ AWS Academy Cloud Foundations</p>
+                  <p>✓ Seguridad de la Información - MoE</p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/contact-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-background/75"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get In Touch</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Interested in working together? Feel free to reach out through any of these channels
+      <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-white dark:bg-slate-900 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Get In Touch</h2>
+            <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8"></div>
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-12">
+              Ready to discuss cybersecurity, systems engineering, or collaboration opportunities? Let's connect.
             </p>
-          </div>
-          <div className="mx-auto max-w-2xl">
-            <div className="grid md:grid-cols-3 gap-4">
-              <Card className="bg-background border-primary/20">
-                <CardContent className="pt-6 flex flex-col items-center text-center">
-                  <Mail className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-semibold mb-2">Email</h3>
-                  <Link href="mailto:federicobl93@gmail.com" className="text-primary hover:underline">
-                    federicobl93@gmail.com
-                  </Link>
-                </CardContent>
-              </Card>
-              <Card className="bg-background border-primary/20">
-                <CardContent className="pt-6 flex flex-col items-center text-center">
-                  <Phone className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-semibold mb-2">Phone</h3>
-                  <Link href="tel:+61423562487" className="text-primary hover:underline">
-                    0423 562 487
-                  </Link>
-                </CardContent>
-              </Card>
-              <Card className="bg-background border-primary/20">
-                <CardContent className="pt-6 flex flex-col items-center text-center">
-                  <MapPin className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-semibold mb-2">Location</h3>
-                  <p className="text-muted-foreground">Hawthorn East, VIC, Australia</p>
-                </CardContent>
-              </Card>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <Mail className="h-8 w-8 text-primary mx-auto mb-3" />
+                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Email</h3>
+                <Link href="mailto:federicobl93@gmail.com" className="text-primary hover:underline">
+                  federicobl93@gmail.com
+                </Link>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <Phone className="h-8 w-8 text-primary mx-auto mb-3" />
+                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Phone</h3>
+                <Link href="tel:+61423562487" className="text-primary hover:underline">
+                  +61 423 562 487
+                </Link>
+              </div>
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-lg">
+                <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
+                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Location</h3>
+                <p className="text-slate-600 dark:text-slate-400">
+                  Hawthorn East, VIC, Australia
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section className="w-full py-8 md:py-16 lg:py-20 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative overflow-hidden dark:bg-black">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 dark:from-slate-950 dark:via-primary/5 dark:to-slate-950 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Newsletter</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
-                Stay Updated on Cybersecurity Trends
-              </h2>
-              <p className="max-w-[600px] text-gray-300 dark:text-gray-400 md:text-xl/relaxed">
-                Subscribe to our newsletter for the latest cybersecurity news, tips, and insights.
-              </p>
-            </div>
-            <div className="w-full max-w-md">
-              <NewsletterForm />
-            </div>
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Stay Informed</h2>
+            <p className="text-lg text-gray-300 mb-8">
+              Subscribe to my newsletter for insights on cybersecurity trends, threat analysis, and security best practices.
+            </p>
+            <NewsletterForm />
           </div>
         </div>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-5"></div>
       </section>
 
       {/* Recent Blog Posts */}
-      <section className="w-full py-8 md:py-16 lg:py-20 bg-background relative overflow-hidden" style={{backgroundImage: 'url(/hero-bg.svg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
-        <div className="absolute inset-0 bg-background/80"></div>
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Blog</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Latest Insights</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Stay informed with our latest articles on cybersecurity trends, threats, and best practices.
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-950 relative">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">Latest Insights</h2>
+              <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-4"></div>
+              <p className="text-lg text-slate-600 dark:text-slate-300">
+                In-depth articles on cybersecurity threats, best practices, and industry trends.
               </p>
             </div>
-          </div>
 
-          {dbError ? (
-            <div className="mx-auto max-w-5xl py-12 text-center">
-              <p className="text-muted-foreground">Unable to load blog posts at this time. Please try again later.</p>
-            </div>
-          ) : (
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-8 lg:grid-cols-3 lg:gap-8">
-              {latestPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                  <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-200 group-hover:border-primary/50 group-hover:shadow-md">
-                    <div className="aspect-video w-full overflow-hidden">
-                      <Image
-                        src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
-                        width={600}
-                        height={400}
-                        alt={post.title}
-                        className="object-cover transition-all duration-200 group-hover:scale-105"
-                      />
+            {dbError ? (
+              <div className="text-center py-12">
+                <p className="text-slate-600 dark:text-slate-400">Unable to load blog posts. Please try again later.</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-3 gap-6">
+                {latestPosts.map((post) => (
+                  <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                    <div className="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:border-primary/50 transition-all">
+                      <div className="aspect-video w-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+                        <Image
+                          src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
+                          width={600}
+                          height={400}
+                          alt={post.title}
+                          className="object-cover group-hover:scale-105 transition-transform"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{post.title}</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-2">{post.excerpt}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">{formatDate(post.createdAt)}</p>
+                      </div>
                     </div>
-                    <CardHeader>
-                      <CardTitle>{post.title}</CardTitle>
-                      <CardDescription>{post.excerpt}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          )}
+                  </Link>
+                ))}
+              </div>
+            )}
 
-          <div className="flex justify-center">
-            <Link href="/blog">
-              <Button variant="outline">View All Articles</Button>
-            </Link>
+            <div className="flex justify-center mt-8">
+              <Link href="/blog">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  View All Articles
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
