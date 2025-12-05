@@ -1,6 +1,8 @@
-import { Award, GraduationCap, Briefcase, Calendar, CheckCircle } from "lucide-react"
+import { Award, GraduationCap, Briefcase, Calendar, CheckCircle, Linkedin, Github, Mail, ExternalLink } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function AboutPage() {
   return (
@@ -10,10 +12,9 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">About Me</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">About Federico Bustos</h1>
               <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed">
-                Cybersecurity professional with over 15 years of experience protecting organizations from evolving
-                threats.
+                Cybersecurity Professional | SOC Analyst | Vulnerability Assessment Specialist
               </p>
             </div>
           </div>
@@ -29,30 +30,41 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
             <div className="flex flex-col justify-center space-y-6">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">John Smith</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Federico Bustos</h2>
                 <p className="text-xl text-muted-foreground">
-                  <span className="text-primary font-semibold">Cybersecurity Consultant & Penetration Tester</span>
+                  <span className="text-primary font-semibold">Systems Engineer | SOC Analyst | Cybersecurity Specialist</span>
                 </p>
               </div>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  I am a dedicated cybersecurity professional with a passion for helping organizations strengthen their
-                  security posture and protect their valuable digital assets. With over 15 years of experience in the
-                  industry, I have worked with clients across various sectors, from financial services and healthcare to
-                  government and technology.
+                  As a Systems Engineer with a strong cybersecurity foundation, I bring hands-on experience in event monitoring, incident response, and vulnerability management across diverse infrastructures. My career has focused on protecting critical assets through proactive threat detection and strategic security implementations.
                 </p>
                 <p className="text-muted-foreground">
-                  My approach combines technical expertise with a deep understanding of business needs, allowing me to
-                  develop security solutions that are both effective and practical. I believe that cybersecurity is not
-                  just about implementing technical controls, but also about building a culture of security awareness
-                  and resilience.
+                  During my tenure at COINSA SAS, I successfully transitioned from SOC Analyst Level 1 to Level 2, leading initiatives that enhanced threat detection accuracy and reduced incident response times by up to 30%. I have developed expertise working with Fortinet technologies (FortiSIEM, FortiAnalyzer, FortiGate) and have implemented security frameworks for clients in highly sensitive sectors.
                 </p>
                 <p className="text-muted-foreground">
-                  Throughout my career, I have helped organizations identify and address security vulnerabilities,
-                  implement robust security programs, and respond effectively to security incidents. I am committed to
-                  staying at the forefront of the rapidly evolving cybersecurity landscape and sharing my knowledge with
-                  clients and the broader security community.
+                  I am passionate about leveraging open-source OSINT tools and free security resources to conduct comprehensive vulnerability research and email analysis. My approach combines technical mastery with continuous learning, staying ahead of emerging threats and security best practices.
                 </p>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <Link href="https://linkedin.com/in/federico-bustos-systems-engineer" target="_blank">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </Button>
+                </Link>
+                <Link href="https://github.com/federicobustos" target="_blank">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Github className="h-4 w-4" />
+                    GitHub
+                  </Button>
+                </Link>
+                <Link href="mailto:federicobl93@gmail.com">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Mail className="h-4 w-4" />
+                    Contact
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex items-center justify-center">
@@ -60,8 +72,8 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur-3xl opacity-20"></div>
                 <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-background p-2">
                   <Image
-                    src="/cyber-guardian.png"
-                    alt="John Smith - Cybersecurity Professional"
+                    src="/images/foto.png"
+                    alt="Federico Bustos - Cybersecurity Professional"
                     width={500}
                     height={500}
                     className="rounded-lg object-cover w-full h-full"
@@ -81,7 +93,7 @@ export default function AboutPage() {
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Credentials</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Certifications & Education</h2>
               <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                Professional qualifications and academic background that inform my expertise.
+                Professional qualifications and academic background that inform my expertise in cybersecurity.
               </p>
             </div>
           </div>
@@ -92,12 +104,12 @@ export default function AboutPage() {
                 <div className="bg-primary/10 p-3 w-fit rounded-lg mb-4">
                   <Award className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>CISSP</CardTitle>
-                <CardDescription>Certified Information Systems Security Professional</CardDescription>
+                <CardTitle>Fortinet NSE 3</CardTitle>
+                <CardDescription>Network Security Associate</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Globally recognized certification demonstrating expertise across eight security domains.
+                  Certification in Fortinet security solutions and network security fundamentals. July 2022
                 </p>
               </CardContent>
             </Card>
@@ -107,12 +119,12 @@ export default function AboutPage() {
                 <div className="bg-primary/10 p-3 w-fit rounded-lg mb-4">
                   <Award className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>OSCP</CardTitle>
-                <CardDescription>Offensive Security Certified Professional</CardDescription>
+                <CardTitle>Ethical Hacker (EHE)</CardTitle>
+                <CardDescription>EC-Council</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Hands-on penetration testing certification proving practical exploitation skills.
+                  Ethical Hacker Essentials certification covering penetration testing and ethical hacking. June 2023
                 </p>
               </CardContent>
             </Card>
@@ -122,12 +134,12 @@ export default function AboutPage() {
                 <div className="bg-primary/10 p-3 w-fit rounded-lg mb-4">
                   <Award className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>CCSP</CardTitle>
-                <CardDescription>Certified Cloud Security Professional</CardDescription>
+                <CardTitle>AWS Cloud Foundations</CardTitle>
+                <CardDescription>Amazon Web Services</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Specialized certification in cloud security architecture, design, and operations.
+                  AWS Academy Cloud Foundations for cloud security and infrastructure. November 2022
                 </p>
               </CardContent>
             </Card>
@@ -137,12 +149,12 @@ export default function AboutPage() {
                 <div className="bg-primary/10 p-3 w-fit rounded-lg mb-4">
                   <GraduationCap className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>M.S. Cybersecurity</CardTitle>
-                <CardDescription>Stanford University</CardDescription>
+                <CardTitle>B.S. Systems Engineering</CardTitle>
+                <CardDescription>Universidad EAN, Colombia</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Advanced degree with focus on security architecture and threat intelligence.
+                  Bachelor's degree in Systems Engineering with focus on IT and cybersecurity. 2018 - 2023
                 </p>
               </CardContent>
             </Card>
@@ -156,88 +168,88 @@ export default function AboutPage() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Expertise</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Skills & Specializations</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Technical Skills & Specializations</h2>
               <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                Core competencies and specialized knowledge areas in cybersecurity.
+                Core competencies in cybersecurity, threat monitoring, and vulnerability assessment.
               </p>
             </div>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="space-y-4">
-              <h3 className="text-xl font-bold">Penetration Testing</h3>
+              <h3 className="text-xl font-bold">Security Monitoring & Analysis</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Web Application Testing</span>
+                  <span>FortiSIEM Security Monitoring</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Network Infrastructure Testing</span>
+                  <span>FortiAnalyzer Log Analysis</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Mobile Application Testing</span>
+                  <span>FortiGate Firewall Management</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Social Engineering Assessments</span>
+                  <span>Real-time Threat Detection</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Red Team Operations</span>
+                  <span>Incident Response Management</span>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-bold">Security Architecture</h3>
+              <h3 className="text-xl font-bold">Infrastructure & Systems</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Zero Trust Architecture</span>
+                  <span>VMware Infrastructure</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Cloud Security Design</span>
+                  <span>Citrix Administration</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Network Security Design</span>
+                  <span>Cisco Network Security</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Identity & Access Management</span>
+                  <span>AWS Cloud Security</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Secure SDLC Implementation</span>
+                  <span>System Performance Optimization</span>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-bold">Incident Response</h3>
+              <h3 className="text-xl font-bold">Reporting & Documentation</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Digital Forensics</span>
+                  <span>Security Compliance Reports</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Malware Analysis</span>
+                  <span>Executive Dashboards</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Threat Hunting</span>
+                  <span>Threat Intelligence Analysis</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Incident Response Planning</span>
+                  <span>Vulnerability Documentation</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary" />
-                  <span>Breach Containment & Recovery</span>
+                  <span>Process Automation & Workflow</span>
                 </li>
               </ul>
             </div>
@@ -253,7 +265,7 @@ export default function AboutPage() {
               <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Career</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Professional Experience</h2>
               <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                My journey through the cybersecurity industry.
+                My journey in cybersecurity and systems engineering.
               </p>
             </div>
           </div>
@@ -265,17 +277,15 @@ export default function AboutPage() {
               </div>
               <div className="w-full md:w-[calc(50%-4rem)] bg-background p-5 rounded-lg border border-primary/20 shadow-sm">
                 <div className="flex items-center justify-between space-x-2 mb-1">
-                  <h3 className="font-bold text-lg">Principal Security Consultant</h3>
+                  <h3 className="font-bold text-lg">SOC Analyst Level 2</h3>
                   <time className="font-semibold text-primary flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
-                    2018 - Present
+                    Sept 2022 - Oct 2023
                   </time>
                 </div>
-                <p className="text-muted-foreground mb-2">CyberShield Consulting</p>
+                <p className="text-muted-foreground mb-2">COINSA SAS | Bogotá, Colombia</p>
                 <p className="text-sm text-muted-foreground">
-                  Leading complex security assessments and penetration tests for Fortune 500 clients. Developing custom
-                  security frameworks and methodologies. Mentoring junior security consultants and delivering executive
-                  briefings on critical security findings.
+                  Managed critical security incidents and oversaw technical reporting across client environments. Implemented monitoring dashboards that improved detection accuracy and incident response speed by 30%. Administered Fortinet infrastructure including FortiSIEM, FortiGate, and FortiAnalyzer. Supported virtual machine environments and contributed to knowledge sharing among Level 1 analysts.
                 </p>
               </div>
             </div>
@@ -286,17 +296,15 @@ export default function AboutPage() {
               </div>
               <div className="w-full md:w-[calc(50%-4rem)] bg-background p-5 rounded-lg border border-primary/20 shadow-sm">
                 <div className="flex items-center justify-between space-x-2 mb-1">
-                  <h3 className="font-bold text-lg">Senior Security Engineer</h3>
+                  <h3 className="font-bold text-lg">SOC Analyst Level 1</h3>
                   <time className="font-semibold text-primary flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
-                    2014 - 2018
+                    March 2022 - Sept 2022
                   </time>
                 </div>
-                <p className="text-muted-foreground mb-2">SecureTech Solutions</p>
+                <p className="text-muted-foreground mb-2">COINSA SAS | Bogotá, Colombia</p>
                 <p className="text-sm text-muted-foreground">
-                  Designed and implemented security architectures for cloud migrations. Led vulnerability management
-                  program and security operations center (SOC) initiatives. Conducted internal security assessments and
-                  developed remediation strategies.
+                  Monitored over 20 dashboards for real-time infrastructure supervision. Generated compliance reports and handled daily incident documentation. Improved system performance by optimizing hardware configuration and OS performance. Authored over 40 use case templates to streamline repetitive analysis and improve operational efficiency.
                 </p>
               </div>
             </div>
@@ -307,20 +315,173 @@ export default function AboutPage() {
               </div>
               <div className="w-full md:w-[calc(50%-4rem)] bg-background p-5 rounded-lg border border-primary/20 shadow-sm">
                 <div className="flex items-center justify-between space-x-2 mb-1">
-                  <h3 className="font-bold text-lg">Security Analyst</h3>
+                  <h3 className="font-bold text-lg">Medical Accounts Analyst</h3>
                   <time className="font-semibold text-primary flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
-                    2010 - 2014
+                    Feb 2020 - March 2022
                   </time>
                 </div>
-                <p className="text-muted-foreground mb-2">Global Financial Services</p>
+                <p className="text-muted-foreground mb-2">La Equidad Seguros OC | Bogotá, Colombia</p>
                 <p className="text-sm text-muted-foreground">
-                  Performed security monitoring and incident response for a major financial institution. Conducted
-                  vulnerability assessments and security awareness training. Assisted in developing security policies
-                  and procedures.
+                  Led data analysis and pricing strategies to optimize service costs and streamline claims processing. Responded to service incidents with structured protocols, improving turnaround times and operational consistency. Developed commercial proposals for national healthcare providers based on market needs and risk segmentation.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Free OSINT Tools Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Resources</div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Free OSINT Tools & Resources</h2>
+              <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                Essential open-source and free tools for vulnerability research, email analysis, and security investigations.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Email Analysis & OSINT</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Hunter.io</p>
+                  <p className="text-muted-foreground">Email finder and verifier for lead generation and research</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Have I Been Pwned</p>
+                  <p className="text-muted-foreground">Check if emails appear in data breaches</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Dehashed</p>
+                  <p className="text-muted-foreground">Search leaked database credentials</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Domain & IP Intelligence</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Whois.com</p>
+                  <p className="text-muted-foreground">WHOIS and domain registration information</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Shodan</p>
+                  <p className="text-muted-foreground">Search for internet-connected devices and services</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">VirusTotal</p>
+                  <p className="text-muted-foreground">Analyze URLs, IPs, and files for malicious content</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Vulnerability Scanning</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Nessus Essentials</p>
+                  <p className="text-muted-foreground">Free vulnerability scanner for personal use</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">OpenVAS</p>
+                  <p className="text-muted-foreground">Open-source vulnerability management</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">OWASP ZAP</p>
+                  <p className="text-muted-foreground">Web application security scanning</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Network Reconnaissance</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Nmap</p>
+                  <p className="text-muted-foreground">Network mapping and port discovery</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Wireshark</p>
+                  <p className="text-muted-foreground">Network protocol analyzer</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Maltego</p>
+                  <p className="text-muted-foreground">Open-source intelligence and forensics platform</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Data Breach & Credential Tools</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Breach Directory</p>
+                  <p className="text-muted-foreground">Search across multiple breach databases</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">LeakCheck</p>
+                  <p className="text-muted-foreground">Email and password leak verification</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">Data.Breach.Wiki</p>
+                  <p className="text-muted-foreground">Comprehensive breach database</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-background border-primary/20 hover:border-primary/40 transition-all">
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>Research & Threat Intelligence</span>
+                  <ExternalLink className="h-4 w-4" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">MITRE ATT&CK</p>
+                  <p className="text-muted-foreground">Threat tactics and techniques framework</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">CVE Details</p>
+                  <p className="text-muted-foreground">Vulnerability and exposure database</p>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="font-semibold text-primary">CISA Alerts</p>
+                  <p className="text-muted-foreground">Official cybersecurity threat information</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
