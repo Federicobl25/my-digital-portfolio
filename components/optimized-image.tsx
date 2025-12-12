@@ -108,21 +108,27 @@ export function BlogCoverImage({
   let imageToUse = FALLBACK_IMAGE_SVG;
   
   if (src) {
-    if (src.startsWith('/') || src.startsWith('http')) {
-      // Es una ruta válida
+    if (src.startsWith('/images/') || src.startsWith('/')) {
+      // Es una ruta válida que comienza con /
+      imageToUse = src;
+    } else if (src.startsWith('http')) {
+      // Es una URL absoluta
       imageToUse = src;
     } else if (src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.jpeg') || src.endsWith('.webp') || src.endsWith('.svg')) {
       // Es un nombre de archivo, búscalo en /public/
       imageToUse = `/${src}`;
     } else {
-      // Intenta agregando .svg si no tiene extensión
-      imageToUse = `/${src}.svg`;
+      // Fallback si nada coincide
+      imageToUse = FALLBACK_IMAGE_SVG;
     }
   }
 
+  // Detectar si es SVG
+  const isSvg = imageToUse.endsWith('.svg') || imageToUse.startsWith('data:image/svg');
+
   return (
     <div className={`relative overflow-hidden bg-slate-800 w-full h-full ${className}`}>
-      <OptimizedImage
+      <Image
         src={imageToUse}
         alt={title}
         width={1200}
@@ -130,6 +136,10 @@ export function BlogCoverImage({
         className="w-full h-full object-cover"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         priority={false}
+        unoptimized={isSvg}
+        onError={(e) => {
+          console.warn(`Failed to load blog cover image: ${imageToUse}`);
+        }}
       />
       {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
