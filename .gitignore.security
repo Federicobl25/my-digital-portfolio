@@ -1,0 +1,44 @@
+# Archivos y carpetas ignoradas por motivos de seguridad
+# Este archivo define qué no debe estar en el repositorio público
+
+# Documentos privados (reportes de seguridad, auditorías)
+docs/private/
+docs/private/**/*
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos sensibles
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Logs y depuración
+logs/
+*.log
+debug/
+
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Build
+.next/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db

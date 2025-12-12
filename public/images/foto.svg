@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" class="w-full h-full">
+  <!-- Gradiente de fondo -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+
+  <!-- Círculos decorativos -->
+  <circle cx="200" cy="150" r="100" fill="#4F46E5" opacity="0.1"/>
+  <circle cx="1000" cy="450" r="120" fill="#7C3AED" opacity="0.15"/>
+
+  <!-- Contenedor principal -->
+  <g>
+    <!-- Avatar círculo -->
+    <circle cx="600" cy="250" r="80" fill="url(#accentGradient)" opacity="0.2"/>
+    <circle cx="600" cy="250" r="75" fill="none" stroke="#4F46E5" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Icono de foto (montaña + sol) -->
+    <g transform="translate(560, 210)">
+      <!-- Sol -->
+      <circle cx="50" cy="25" r="15" fill="#FBBF24" opacity="0.8"/>
+      <!-- Montaña 1 -->
+      <path d="M 10 60 L 30 30 L 50 50 L 70 20 L 90 60 Z" fill="#60A5FA" opacity="0.6"/>
+      <!-- Montaña 2 -->
+      <path d="M 15 60 L 40 35 L 65 55 L 85 60 Z" fill="#3B82F6" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Texto principal -->
+  <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" text-anchor="middle" fill="#F1F5F9">
+    Portfolio Image
+  </text>
+  
+  <!-- Texto secundario -->
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="16" text-anchor="middle" fill="#94A3B8">
+    Professional showcase placeholder
+  </text>
+
+  <!-- Línea decorativa -->
+  <line x1="400" y1="450" x2="800" y2="450" stroke="#4F46E5" stroke-width="2" opacity="0.3"/>
+</svg>

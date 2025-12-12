@@ -1,9 +1,9 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Shield, Lock, Server, Database, AlertTriangle, FileCode, Mail, Phone, MapPin, Linkedin, Github, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { NewsletterForm } from "@/components/newsletter-form"
+import { HeroImage, BlogCardImage } from "@/components/home-images"
 import { db, blogPosts } from "@/lib/db"
 import { formatDate } from "@/lib/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -104,18 +104,7 @@ export default async function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative w-full max-w-[400px] aspect-square">
-                <Image
-                  src="/images/foto.png"
-                  width={400}
-                  height={400}
-                  alt="Federico Bustos"
-                  className="rounded-2xl object-cover shadow-2xl shadow-primary/50 border border-primary/20"
-                />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/30 to-transparent"></div>
-              </div>
-            </div>
+            <HeroImage />
           </div>
         </div>
       </section>
@@ -373,15 +362,12 @@ export default async function Home() {
                 {latestPosts.map((post) => (
                   <Link key={post.id} href={`/blog/${post.slug}`} className="group">
                     <div className="bg-gradient-to-br from-slate-900/50 to-slate-950/50 rounded-lg overflow-hidden border border-primary/20 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all backdrop-blur">
-                      <div className="aspect-video w-full overflow-hidden bg-slate-800">
-                        <Image
-                          src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
-                          width={600}
-                          height={400}
-                          alt={post.title}
-                          className="object-cover group-hover:scale-105 transition-transform"
-                        />
-                      </div>
+                      <BlogCardImage
+                        src={post.coverImage}
+                        title={post.title}
+                        postId={post.id}
+                        slug={post.slug}
+                      />
                       <div className="p-4">
                         <h3 className="font-bold text-white group-hover:text-primary transition-colors">{post.title}</h3>
                         <p className="text-sm text-gray-400 mt-2 line-clamp-2">{post.excerpt}</p>

@@ -24,9 +24,15 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      "@config/*": ["src/config/*"],
+      "@database/*": ["src/database/*"],
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"],
+      "@types/*": ["src/types/*"],
+      "@components/*": ["src/shared/components/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@utils/*": ["src/shared/utils/*"]
     }
   },
   "include": [
