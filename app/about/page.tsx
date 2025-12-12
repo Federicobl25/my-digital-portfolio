@@ -72,7 +72,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur-3xl opacity-20"></div>
                 <div className="relative overflow-hidden rounded-xl border border-primary/20 bg-background p-2">
                   <Image
-                    src="/images/foto.png"
+                    src="/images/foto.svg"
                     alt="Federico Bustos - Cybersecurity Professional"
                     width={500}
                     height={500}
