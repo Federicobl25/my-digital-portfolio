@@ -168,7 +168,7 @@ async function main() {
     
     const blogAuthor = 'Fede';
     const blogReadTime = '12 min read';
-    const blogCoverImage = '/ai-protector-security.png';
+    const blogCoverImage = '/images/ai-protector-workshop.svg';
 
     console.log('Inserting blog post...');
     const result = await sql`

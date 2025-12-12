@@ -234,7 +234,7 @@ async function main() {
     
     const blogAuthor = 'Federico Bustos';
     const blogReadTime = '14 min read';
-    const blogCoverImage = '/cybersecurity-importance.png';
+    const blogCoverImage = '/images/cybersecurity-digital-age.svg';
 
     console.log('Inserting blog post...');
     const result = await sql`

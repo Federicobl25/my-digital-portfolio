@@ -187,7 +187,7 @@ const blogContent = `<p>As artificial intelligence continues to transform how we
 
 const blogAuthor = 'Security Research Team';
 const blogReadTime = '15 min read';
-const blogCoverImage = '/ai-security.png';
+const blogCoverImage = '/images/security-in-ai-mcp.svg';
 
 async function insertBlogPost() {
   console.log('Adding blog post to database...');

@@ -146,7 +146,7 @@ async function main() {
           <h2>Conclusion</h2>
           
           <p>Zero-day vulnerabilities represent a significant challenge in cybersecurity, but with a comprehensive security strategy, organizations can reduce their risk and minimize potential damage. By implementing multiple layers of protection and staying vigilant, you can better protect your systems even against unknown threats.</p>`,
-          coverImage: "/unseen-threat.png",
+          coverImage: "/images/security-in-ai-mcp.svg",
           author: "John Doe",
           readTime: "8 min read",
         },
@@ -213,7 +213,7 @@ async function main() {
           <h2>Conclusion</h2>
           
           <p>Ransomware attacks can be devastating, but with proper prevention, detection, and recovery strategies in place, organizations can significantly reduce their risk and minimize the impact of an attack. Remember that the best defense against ransomware is a proactive, multi-layered approach to security.</p>`,
-          coverImage: "/digital-shield.png",
+          coverImage: "/images/ai-protector-workshop.svg",
           author: "Jane Smith",
           readTime: "10 min read",
         },
@@ -270,7 +270,7 @@ async function main() {
           <h2>Conclusion</h2>
           
           <p>Securing cloud infrastructure requires a comprehensive approach that addresses identity management, data protection, network security, and continuous monitoring. By implementing these best practices and staying informed about emerging threats, you can maintain a secure cloud environment that protects your organization's valuable assets.</p>`,
-          coverImage: "/secure-cloud-network.png",
+          coverImage: "/images/cybersecurity-digital-age.svg",
           author: "Michael Chen",
           readTime: "12 min read",
         },
