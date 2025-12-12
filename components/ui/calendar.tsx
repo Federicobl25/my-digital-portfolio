@@ -53,10 +53,6 @@ function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-        IconLeft: (/* Removed unused props */) => <ChevronLeft className="h-4 w-4" />,
-        IconRight: (/* Removed unused props */) => <ChevronRight className="h-4 w-4" />,
-      }}
       {...props} // Spread remaining props to DayPicker
     />
   )

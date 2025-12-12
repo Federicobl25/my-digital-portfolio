@@ -62,4 +62,4 @@ export default {
     ssl: "require" as const,
   },
   verbose: true,
-} satisfies Config
+} as Config

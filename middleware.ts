@@ -66,7 +66,6 @@ export default clerkMiddleware(async (auth, req) => {
   // Get client IP
   const ip = req.headers.get('x-forwarded-for') || 
              req.headers.get('x-real-ip') || 
-             req.ip || 
              'unknown';
 
   // Security: Verify request method is allowed

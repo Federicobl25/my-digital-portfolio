@@ -12,8 +12,8 @@ import {
 } from "@/lib/security"
 import { headers } from "next/headers"
 
-// Define the interface but don't export it directly
-interface NewsletterState extends ActionState {
+// Define the interface and export it for use in components
+export interface NewsletterState extends ActionState {
   email?: string;
   name?: string;
 }
@@ -59,7 +59,7 @@ export async function subscribeToNewsletter(
     }
 
     // Sanitize and validate input
-    const validated = validateAndSanitize(newsletterSchema, { email });
+    const validated = validateAndSanitize<{ email: string }>(newsletterSchema, { email }) as { email: string };
 
     // Check if email already exists (prevent duplicates)
     const existingSubscriber = await db
