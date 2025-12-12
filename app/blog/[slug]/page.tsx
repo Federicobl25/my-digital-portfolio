@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,6 +7,7 @@ import { eq } from "drizzle-orm"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { BlogCoverImage } from "@/components/optimized-image"
 
 async function getBlogPost(slug: string) {
   try {
@@ -57,13 +57,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="flex flex-col">
-      <div className="w-full h-[400px] relative bg-black">
-        <Image
-          src={post.coverImage || "/placeholder.svg?height=600&width=1200&query=cybersecurity"}
-          fill
-          alt={post.title}
-          className="object-cover opacity-70"
-        />
+      <div className="w-full h-[400px] relative bg-black overflow-hidden">
+        <div className="absolute inset-0">
+          <BlogCoverImage
+            src={post.coverImage}
+            title={post.title}
+            className="w-full h-full opacity-70"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
       </div>
 

@@ -1,7 +1,7 @@
 import { db, blogPosts } from "@/lib/db"; // Import blogPosts table
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { BlogCoverImage } from "@/components/optimized-image";
 import { BlogPost } from "@/lib/types"; // Import BlogPost type from lib/types
 import { formatDate } from "@/lib/utils"; // Assuming formatDate is in utils
 
@@ -32,17 +32,15 @@ export default async function BlogPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => ( // Type is inferred correctly now
               <Card key={post.id} className="overflow-hidden">
-                {post.coverImage && ( // Use coverImage instead of imageUrl
-                  <Link href={`/blog/${post.slug}`}>
-                    <Image
-                      src={post.coverImage} // Use coverImage
-                      alt={post.title}
-                      width={400}
-                      height={225}
-                      className="w-full h-48 object-cover"
+                <Link href={`/blog/${post.slug}`}>
+                  <div className="w-full h-48">
+                    <BlogCoverImage
+                      src={post.coverImage || undefined}
+                      title={post.title}
+                      className="w-full h-full"
                     />
-                  </Link>
-                )}
+                  </div>
+                </Link>
                 <CardHeader>
                   <CardTitle>{post.title}</CardTitle>
                   {/* Excerpt is not nullable in the schema, so no need for null check */}
