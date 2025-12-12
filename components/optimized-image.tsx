@@ -72,15 +72,11 @@ export function OptimizedImage({
         onError={handleError}
         quality={75}
         loading={priority ? 'eager' : 'lazy'}
-        // Seguridad: Validar origen de imagen
-        crossOrigin="anonymous"
         // Estilos por defecto
         className="object-cover"
         // ARIA para accesibilidad
         role="img"
         aria-label={alt}
-        // Permitir SVG con dangerouslyAllowSVG
-        unoptimized={imageSrc.endsWith('.svg') || imageSrc.startsWith('data:image/svg')}
       />
       {hasError && (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded">
