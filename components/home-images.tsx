@@ -12,7 +12,7 @@ export function HeroImage() {
           height={400}
           alt="Federico Bustos"
           className="rounded-2xl object-cover shadow-2xl shadow-primary/50 border border-primary/20"
-          priority={true}
+          priority
         />
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-primary/30 to-transparent"></div>
       </div>

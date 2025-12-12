@@ -57,6 +57,9 @@ export function OptimizedImage({
     }
   }, [src, hasError]);
 
+  // Check if image is SVG
+  const isSvg = imageSrc.endsWith('.svg') || imageSrc.startsWith('data:image/svg');
+
   return (
     <div className={`relative ${className}`}>
       <Image
@@ -72,6 +75,7 @@ export function OptimizedImage({
         onError={handleError}
         quality={75}
         loading={priority ? 'eager' : 'lazy'}
+        unoptimized={isSvg}
         // Estilos por defecto
         className="object-cover"
         // ARIA para accesibilidad
