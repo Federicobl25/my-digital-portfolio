@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <div className="w-full h-[400px] relative bg-black overflow-hidden">
         <div className="absolute inset-0">
           <BlogCoverImage
-            src={post.coverImage}
+            src={post.coverImage ?? undefined}
             title={post.title}
             className="w-full h-full opacity-70"
           />
